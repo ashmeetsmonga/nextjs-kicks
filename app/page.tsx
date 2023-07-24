@@ -20,6 +20,8 @@ export default function Home() {
 					<button className='px-4 py-2 mt-2 bg-theme-blue rounded-lg'>Shop now</button>
 				</div>
 			</div>
+
+			<div>Don't miss out new drops</div>
 		</main>
 	);
 }
