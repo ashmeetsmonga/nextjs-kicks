@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { LuMenu } from "react-icons/lu";
 import { BiSolidUser } from "react-icons/bi";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { BsFillCartFill } from "react-icons/bs";
 import NavbarMenu from "./NavbarMenu";
 
 const Navbar = () => {
@@ -28,9 +29,9 @@ const Navbar = () => {
 					)}
 				</button>
 				<div className='hidden md:flex gap-6 w-1/3'>
-					<div>New Drops</div>
-					<div>Men</div>
-					<div>Women</div>
+					<div className='cursor-pointer'>New Drops</div>
+					<div className='cursor-pointer'>Men</div>
+					<div className='cursor-pointer'>Women</div>
 				</div>
 				<div className='font-extrabold text-3xl w-1/3 text-center'>
 					{/* KI<span className='text-stroke-3 relative z-10'>C</span>
@@ -39,9 +40,7 @@ const Navbar = () => {
 				</div>
 				<div className='flex gap-2 md:gap-6 items-center w-1/3 justify-end'>
 					<BiSolidUser size={25} />
-					<div className='bg-theme-yellow px-2 py-0.5 flex justify-center items-center rounded-full'>
-						0
-					</div>
+					<BsFillCartFill size={22} className='text-theme-yellow' />
 				</div>
 			</div>
 		</div>
