@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.text-stroke-3 {
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+
+.vignette {
+  -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)))
 }
