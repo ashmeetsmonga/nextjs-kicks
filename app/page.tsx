@@ -20,8 +20,13 @@ export default function Home() {
 					<button className='px-4 py-2 mt-2 bg-theme-blue rounded-lg'>Shop now</button>
 				</div>
 			</div>
-
-			<div>Don't miss out new drops</div>
+			<div className=''>
+				<div className='flex justify-between items-center'>
+					<h2 className='font-semibold text-2xl md:text-4xl'>Don't miss out new drops</h2>
+					<button className='px-4 py-2 mt-2 bg-theme-blue rounded-lg text-white'>Shop now</button>
+				</div>
+				<div></div>
+			</div>
 		</main>
 	);
 }
