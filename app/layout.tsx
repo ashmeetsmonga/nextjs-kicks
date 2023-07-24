@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang='en'>
-			<body className={`${poppins.className} bg-theme-gray`}>
+			<body className={`${poppins.className} bg-theme-gray p-6 md:px-10`}>
 				<Navbar />
 				{children}
 			</body>

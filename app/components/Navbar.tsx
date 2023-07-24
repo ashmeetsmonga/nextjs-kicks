@@ -11,7 +11,7 @@ const Navbar = () => {
 	const [showMenu, setShowMenu] = useState(false);
 
 	return (
-		<div className='w-full p-6'>
+		<div className='w-full mb-6'>
 			<div className='bg-white w-full flex justify-between items-center p-4 md:px-6 rounded-xl'>
 				<button className='md:hidden w-1/3'>
 					{!showMenu && (
