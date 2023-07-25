@@ -1,9 +1,16 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Product = () => {
+	const router = useRouter();
 	return (
-		<div className='w-full flex flex-col items-center gap-2 group'>
+		<div
+			onClick={() => router.push("/product/1")}
+			className='w-full flex flex-col items-center gap-2 group cursor-pointer'
+		>
 			<div className='w-full aspect-square relative bg-white rounded-xl'>
 				<Image
 					src='/images/shoe-1.png'
