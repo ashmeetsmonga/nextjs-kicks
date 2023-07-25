@@ -14,7 +14,7 @@ const Product = () => {
 				/>
 			</div>
 			<div className='capitalize font-semibold md:text-2xl'>Adidas parley running shoes</div>
-			<button className='bg-theme-dark-gray uppercase text-sm py-3 rounded-lg text-white w-full md:text-lg'>
+			<button className='bg-theme-dark-gray uppercase text-sm py-3 rounded-lg text-white w-full md:text-md'>
 				View product - <span className='text-theme-yellow'>Rs.3000</span>
 			</button>
 		</div>
