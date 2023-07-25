@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Product from "./components/Product";
 
 export default function Home() {
 	return (
@@ -11,7 +12,7 @@ export default function Home() {
 					src={"/images/hero.png"}
 					className='rounded-xl vignette'
 					alt='hero'
-					layout='fill'
+					fill
 					objectFit='cover'
 				/>
 				<div className='absolute bottom-0 left-0 text-white p-4 md:p-6 w-3/5'>
@@ -20,12 +21,17 @@ export default function Home() {
 					<button className='px-4 py-2 mt-2 bg-theme-blue rounded-lg'>Shop now</button>
 				</div>
 			</div>
-			<div className=''>
+			<div className='flex flex-col gap-4'>
 				<div className='flex justify-between items-center'>
 					<h2 className='font-semibold text-2xl md:text-4xl'>Don't miss out new drops</h2>
 					<button className='px-4 py-2 mt-2 bg-theme-blue rounded-lg text-white'>Shop now</button>
 				</div>
-				<div></div>
+				<div className='max-w-screen grid grid-cols-2 gap-4 md:grid-cols-4'>
+					<Product />
+					<Product />
+					<Product />
+					<Product />
+				</div>
 			</div>
 		</main>
 	);
