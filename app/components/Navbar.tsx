@@ -29,9 +29,8 @@ const Navbar = () => {
 					)}
 				</button>
 				<div className='hidden md:flex gap-6 w-1/3'>
-					<div className='cursor-pointer'>New Drops</div>
-					<div className='cursor-pointer'>Men</div>
-					<div className='cursor-pointer'>Women</div>
+					<div className='cursor-pointer'>Life Style Shoes</div>
+					<div className='cursor-pointer'>Basketball Shoes</div>
 				</div>
 				<div className='font-extrabold text-3xl w-1/3 text-center'>
 					{/* KI<span className='text-stroke-3 relative z-10'>C</span>
