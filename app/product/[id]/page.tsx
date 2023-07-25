@@ -1,10 +1,14 @@
 import React from "react";
 import ImageContainer from "./components/ImageContainer";
+import ProductInfo from "./components/ProductInfo";
 
 const ProductDetails = () => {
 	return (
 		<div className='w-full flex flex-col gap-4'>
-			<ImageContainer />
+			<div className='w-full flex flex-col md:flex-row gap-4 '>
+				<ImageContainer />
+				<ProductInfo />
+			</div>
 		</div>
 	);
 };

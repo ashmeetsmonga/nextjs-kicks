@@ -7,7 +7,7 @@ const ImageContainer = () => {
 	const [selectedImage, setSelectedImage] = useState(0);
 
 	return (
-		<div className='w-full'>
+		<div className='w-full md:w-3/5'>
 			<div className='md:hidden w-full flex flex-col gap-4'>
 				<div className='w-full aspect-square relative rounded-xl'>
 					<Image
@@ -57,7 +57,7 @@ const ImageContainer = () => {
 					</div>
 				</div>
 			</div>
-			<div className='hidden md:grid grid-cols-2 gap-2 w-3/5'>
+			<div className='hidden md:grid grid-cols-2 gap-2'>
 				<div className='w-full aspect-square relative rounded-xl'>
 					<Image
 						src='/images/shoe-1.png'
