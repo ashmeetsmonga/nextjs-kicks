@@ -1,21 +1,11 @@
-"use client"
-
 import Image from "next/image";
-import Product from "./components/Product";
-import { useShoeStore } from "./store/useShoeStore";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useEffect } from "react";
+import FeaturedProducts from "./components/FeaturedProducts";
+import getShoesList from "./actions/getShoesList";
 
-export default function Home() {
+export default async function Home() {
 
-  const setShoesList = useShoeStore(state => state.setShoesList)
-  const shoesList = useShoeStore(state => state.shoesList)
-
-  const router = useRouter()
-
-  useEffect(() => {
-    fetch('/shoes-data.json').then(data => data.json()).then(data => setShoesList(data));
-  }, [])
+  const shoesList = await getShoesList();
 
   return (
     <main className="flex flex-col gap-4 md:gap-6">
@@ -42,19 +32,8 @@ export default function Home() {
           </button>
         </div>
       </div>
-      <div className="flex flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-semibold md:text-4xl">
-            Don't miss out new drops
-          </h2>
-          <button onClick={() => router.push('/menu/life-style')} className="mt-2 rounded-lg bg-theme-blue px-4 py-2 text-white">
-            Shop now
-          </button>
-        </div>
-        <div className="max-w-screen grid grid-cols-2 gap-4 md:grid-cols-4">
-          {shoesList.slice(0, 4).map(shoe => <Product key={shoe.id} shoeDetails={shoe} />)}
-        </div>
-      </div>
+      <Suspense fallback={'Loading...'}>
+      <FeaturedProducts shoesList={shoesList} /></Suspense>
     </main>
   );
 }
