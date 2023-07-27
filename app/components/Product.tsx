@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 
 interface ProductProps {
   shoeDetails?: Shoe
@@ -10,6 +10,9 @@ interface ProductProps {
 
 const Product: React.FC<ProductProps> = ({shoeDetails}) => {
   const router = useRouter();
+
+  const [shoeImageSrc, setShoeImageSrc] = useState<string>(shoeDetails?.imageURLs.split(',')[0] || "/images/shoe-1.png")
+
   return (
     <div
       onClick={() => router.push("/product/1")}
@@ -17,10 +20,11 @@ const Product: React.FC<ProductProps> = ({shoeDetails}) => {
     >
       <div className="relative aspect-square w-full rounded-xl bg-white">
         <Image
-          src={shoeDetails?.imageURLs.split(',')[0] || "/images/shoe-1.png"}
+          src={shoeImageSrc}
           alt="shoes"
           fill
           objectFit="cover"
+          onError={() => setShoeImageSrc('/images/shoe-1.png')}
           className="rounded-xl transition-transform group-hover:scale-105"
         />
       </div>
