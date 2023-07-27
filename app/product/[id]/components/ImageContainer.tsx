@@ -12,7 +12,7 @@ const ImageContainer = () => {
         <div className="relative aspect-square w-full rounded-xl">
           <Image
             src="/images/shoe-1.png"
-            alt="shoe-1"
+            alt="shoe-1-img-1"
             fill
             objectFit="contain"
             className="rounded-xl"
