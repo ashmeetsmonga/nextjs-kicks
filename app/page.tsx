@@ -1,7 +1,22 @@
+"use client"
+
 import Image from "next/image";
 import Product from "./components/Product";
+import { useShoeStore } from "./store/useShoeStore";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+
+  const setShoesList = useShoeStore(state => state.setShoesList)
+  const shoesList = useShoeStore(state => state.shoesList)
+
+  const router = useRouter()
+
+  useEffect(() => {
+    fetch('/shoes-data.json').then(data => data.json()).then(data => setShoesList(data));
+  }, [])
+
   return (
     <main className="flex flex-col gap-4 md:gap-6">
       <div className="w-full text-center text-7xl font-extrabold uppercase text-theme-dark-gray md:text-9xl">
@@ -32,15 +47,12 @@ export default function Home() {
           <h2 className="text-2xl font-semibold md:text-4xl">
             Don't miss out new drops
           </h2>
-          <button className="mt-2 rounded-lg bg-theme-blue px-4 py-2 text-white">
+          <button onClick={() => router.push('/menu/life-style')} className="mt-2 rounded-lg bg-theme-blue px-4 py-2 text-white">
             Shop now
           </button>
         </div>
         <div className="max-w-screen grid grid-cols-2 gap-4 md:grid-cols-4">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          {shoesList.slice(0, 4).map(shoe => <Product key={shoe.id} shoeDetails={shoe} />)}
         </div>
       </div>
     </main>

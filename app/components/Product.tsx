@@ -4,7 +4,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const Product = () => {
+interface ProductProps {
+  shoeDetails?: Shoe
+}
+
+const Product: React.FC<ProductProps> = ({shoeDetails}) => {
   const router = useRouter();
   return (
     <div
@@ -13,7 +17,7 @@ const Product = () => {
     >
       <div className="relative aspect-square w-full rounded-xl bg-white">
         <Image
-          src="/images/shoe-1.png"
+          src={shoeDetails?.imageURLs.split(',')[0] || "/images/shoe-1.png"}
           alt="shoes"
           fill
           objectFit="cover"
@@ -21,10 +25,10 @@ const Product = () => {
         />
       </div>
       <div className="font-semibold capitalize md:text-2xl">
-        Adidas parley running shoes
+        {shoeDetails?.name}
       </div>
       <button className="md:text-md w-full rounded-lg bg-theme-dark-gray py-3 text-sm uppercase text-white">
-        View product - <span className="text-theme-yellow">Rs.3000</span>
+        View product - <span className="text-theme-yellow">{shoeDetails?.pricesMax}</span>
       </button>
     </div>
   );

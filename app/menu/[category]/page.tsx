@@ -1,9 +1,15 @@
+"use client"
+
 import DiscountHeader from "@/app/components/DiscountHeader";
 import Product from "@/app/components/Product";
+import { useShoeStore } from "@/app/store/useShoeStore";
 import Image from "next/image";
 import React from "react";
 
 const CategoryPage = () => {
+
+  const shoesList = useShoeStore(state => state.shoesList)
+
   return (
     <div className="flex w-full flex-col gap-4">
       <DiscountHeader />
@@ -26,16 +32,7 @@ const CategoryPage = () => {
           <p className="text-xl font-semibold">Filters</p>
         </div>
         <div className="grid w-full grid-cols-2 gap-x-4 gap-y-8 md:w-3/4 md:grid-cols-3">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+        {shoesList.map(shoe => <Product key={shoe.id} shoeDetails={shoe} />)}
         </div>
       </div>
     </div>
