@@ -1,8 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import shoesList from "@/app/data.json";
+import { useShoeStore } from "@/app/store/useShoeStore";
+import { toast } from "react-hot-toast";
 
 interface ProductInfoProps {
   id: string;
@@ -10,6 +12,17 @@ interface ProductInfoProps {
 
 const ProductInfo: React.FC<ProductInfoProps> = ({ id }) => {
   const product = shoesList.find((shoe) => shoe.id === id);
+
+  const [size, setSize] = useState<number | null>(null);
+
+  const addToCart = useShoeStore((state) => state.addToCart);
+
+  const handleAddToCart = () => {
+    if (size === null) return toast.error("Please select size");
+    const cartItem: CartItem = { productId: id, quantity: 1, size };
+    addToCart(cartItem);
+    toast.success("Product added to cart");
+  };
 
   return (
     <div className="flex w-full flex-col gap-2 md:w-2/5 md:gap-4">
@@ -36,16 +49,31 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ id }) => {
       <div className="flex flex-col gap-2">
         <div className="text-xl font-semibold md:text-2xl">Size</div>
         <div className="flex gap-2">
-          <div className="rounded-lg bg-white px-5 py-3 font-semibold">5</div>
-          <div className="rounded-lg bg-white px-5 py-3 font-semibold">6</div>
-          <div className="rounded-lg bg-white px-5 py-3 font-semibold">7</div>
-          <div className="rounded-lg bg-white px-5 py-3 font-semibold">8</div>
-          <div className="rounded-lg bg-white px-5 py-3 font-semibold">9</div>
+          {new Array(5).fill(0).map((val, idx) =>
+            size === idx + 5 ? (
+              <div
+                onClick={() => setSize(idx + 5)}
+                className="cursor-pointer rounded-lg bg-theme-blue px-5 py-3 font-semibold text-white"
+              >
+                {idx + 5}
+              </div>
+            ) : (
+              <div
+                onClick={() => setSize(idx + 5)}
+                className="cursor-pointer rounded-lg bg-white px-5 py-3 font-semibold"
+              >
+                {idx + 5}
+              </div>
+            ),
+          )}
         </div>
       </div>
       <div className="mt-2 flex flex-col gap-1 md:mt-0">
         <div className="flex w-full gap-1">
-          <button className="w-full rounded-xl bg-theme-dark-gray p-3 text-lg uppercase text-white">
+          <button
+            onClick={() => handleAddToCart()}
+            className="w-full rounded-xl bg-theme-dark-gray p-3 text-lg uppercase text-white"
+          >
             Add to cart
           </button>
           <button className="rounded-xl bg-theme-dark-gray p-3">

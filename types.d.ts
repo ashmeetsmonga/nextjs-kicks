@@ -44,6 +44,6 @@ interface Description {
 
 interface CartItem {
   productId: string;
-  size: string;
+  size: number;
   quantity: number;
 }
