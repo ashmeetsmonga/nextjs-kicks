@@ -1,21 +1,22 @@
-"use client"
+"use client";
 
 import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
-import shoesList from '@/app/data.json'
-
+import shoesList from "@/app/data.json";
 
 interface ProductInfoProps {
-  id: string
+  id: string;
 }
 
-const ProductInfo: React.FC<ProductInfoProps> = ({id}) => {
-
-  const product = shoesList.find(shoe => shoe.id === id);
+const ProductInfo: React.FC<ProductInfoProps> = ({ id }) => {
+  const product = shoesList.find((shoe) => shoe.id === id);
 
   return (
     <div className="flex w-full flex-col gap-2 md:w-2/5 md:gap-4">
-      <div  onClick={() => alert(id)} className="self-start rounded-lg bg-theme-blue p-2 text-white md:p-4">
+      <div
+        onClick={() => alert(id)}
+        className="self-start rounded-lg bg-theme-blue p-2 text-white md:p-4"
+      >
         New Release
       </div>
       <h1 className="text-2xl font-semibold uppercase md:text-4xl">
@@ -57,7 +58,17 @@ const ProductInfo: React.FC<ProductInfoProps> = ({id}) => {
       </div>
       <div className="mt-2 flex flex-col gap-2 md:mt-0">
         <p className="text-lg font-semibold uppercase">About the product</p>
-          {product && product.descriptions && JSON.parse(product.descriptions).map((desc: Description, idx: number) => <div className="w-full flex flex-col gap-4">{desc.value.split('.').map((sentence, idx) => <p>{sentence}</p>)}</div>)}
+        {product &&
+          product.descriptions &&
+          JSON.parse(product.descriptions).map(
+            (desc: Description, idx: number) => (
+              <div className="flex w-full flex-col gap-4">
+                {desc.value.split(".").map((sentence, idx) => (
+                  <p>{sentence}</p>
+                ))}
+              </div>
+            ),
+          )}
       </div>
     </div>
   );

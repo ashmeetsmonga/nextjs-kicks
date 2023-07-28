@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import DiscountHeader from "@/app/components/DiscountHeader";
 import Product from "@/app/components/Product";
-import shoesList from '@/app/data.json'
+import shoesList from "@/app/data.json";
 import React from "react";
 
 const CategoryPage = () => {
@@ -28,7 +28,9 @@ const CategoryPage = () => {
           <p className="text-xl font-semibold">Filters</p>
         </div>
         <div className="grid w-full grid-cols-2 gap-x-4 gap-y-8 md:w-3/4 md:grid-cols-3">
-        {shoesList.map(shoe => <Product key={shoe.id} shoeDetails={shoe} />)}
+          {shoesList.map((shoe) => (
+            <Product key={shoe.id} shoeDetails={shoe} />
+          ))}
         </div>
       </div>
     </div>

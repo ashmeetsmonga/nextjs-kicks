@@ -6,10 +6,11 @@ import { BiSolidUser } from "react-icons/bi";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { BsFillCartFill } from "react-icons/bs";
 import NavbarMenu from "./NavbarMenu";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-
+  const router = useRouter();
   return (
     <div className="mb-6 w-full">
       <div className="flex w-full items-center justify-between rounded-xl bg-white p-4 md:px-6">
@@ -37,9 +38,9 @@ const Navbar = () => {
           <div className="cursor-pointer">Basketball Shoes</div>
         </div>
         <div className="w-1/3 text-center text-3xl font-extrabold">
-          {/* KI<span className='text-stroke-3 relative z-10'>C</span>
-					<span className='-ml-1'>KS</span> */}
-          KICKS
+          <span onClick={() => router.push("/")} className="cursor-pointer">
+            KICKS
+          </span>
         </div>
         <div className="flex w-1/3 items-center justify-end gap-2 md:gap-6">
           <BiSolidUser size={25} />

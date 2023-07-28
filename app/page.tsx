@@ -1,10 +1,9 @@
 import Image from "next/image";
 import { Suspense, useEffect } from "react";
 import FeaturedProducts from "./components/FeaturedProducts";
-import shoesList from './data.json'
+import shoesList from "./data.json";
 
 export default async function Home() {
-
   // const shoesList = await getShoesList();
 
   return (
@@ -32,8 +31,9 @@ export default async function Home() {
           </button>
         </div>
       </div>
-      <Suspense fallback={'Loading...'}>
-      <FeaturedProducts shoesList={shoesList} /></Suspense>
+      <Suspense fallback={"Loading..."}>
+        <FeaturedProducts shoesList={shoesList} />
+      </Suspense>
     </main>
   );
 }

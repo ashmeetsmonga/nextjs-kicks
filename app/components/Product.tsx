@@ -5,13 +5,15 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 interface ProductProps {
-  shoeDetails?: Shoe
+  shoeDetails?: Shoe;
 }
 
-const Product: React.FC<ProductProps> = ({shoeDetails}) => {
+const Product: React.FC<ProductProps> = ({ shoeDetails }) => {
   const router = useRouter();
 
-  const [shoeImageSrc, setShoeImageSrc] = useState<string>(shoeDetails?.imageURLs.split(',')[0] || "/images/shoe-1.png")
+  const [shoeImageSrc, setShoeImageSrc] = useState<string>(
+    shoeDetails?.imageURLs.split(",")[0] || "/images/shoe-1.png",
+  );
 
   return (
     <div
@@ -24,7 +26,7 @@ const Product: React.FC<ProductProps> = ({shoeDetails}) => {
           alt="shoes"
           fill
           objectFit="cover"
-          onError={() => setShoeImageSrc('/images/shoe-1.png')}
+          onError={() => setShoeImageSrc("/images/shoe-1.png")}
           className="rounded-xl transition-transform group-hover:scale-105"
         />
       </div>
@@ -32,7 +34,8 @@ const Product: React.FC<ProductProps> = ({shoeDetails}) => {
         {shoeDetails?.name}
       </div>
       <button className="md:text-md w-full rounded-lg bg-theme-dark-gray py-3 text-sm uppercase text-white">
-        View product - <span className="text-theme-yellow">{shoeDetails?.pricesMax}</span>
+        View product -{" "}
+        <span className="text-theme-yellow">{shoeDetails?.pricesMax}</span>
       </button>
     </div>
   );
