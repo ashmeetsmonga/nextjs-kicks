@@ -41,3 +41,9 @@ interface Description {
   sourceURLs: string[];
   value: string;
 }
+
+interface CartItem {
+  productId: string;
+  size: string;
+  quantity: number;
+}
