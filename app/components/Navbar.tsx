@@ -43,8 +43,12 @@ const Navbar = () => {
           </span>
         </div>
         <div className="flex w-1/3 items-center justify-end gap-2 md:gap-6">
-          <BiSolidUser size={25} />
-          <BsFillCartFill size={22} className="text-theme-yellow" />
+          {/* <BiSolidUser size={25} /> */}
+          <BsFillCartFill
+            onClick={() => router.push("/cart")}
+            size={25}
+            className="cursor-pointer text-theme-yellow"
+          />
         </div>
       </div>
     </div>
