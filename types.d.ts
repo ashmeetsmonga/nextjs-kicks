@@ -9,7 +9,7 @@ interface Shoe {
     dateUpdated: string
     descriptions: string
     dimension: string
-    ean: string
+    ean: number | null
     features: string
     flavors: string
     imageURLs: string

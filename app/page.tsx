@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { Suspense, useEffect } from "react";
 import FeaturedProducts from "./components/FeaturedProducts";
-import getShoesList from "./actions/getShoesList";
+import shoesList from './data.json'
 
 export default async function Home() {
 
-  const shoesList = await getShoesList();
+  // const shoesList = await getShoesList();
 
   return (
     <main className="flex flex-col gap-4 md:gap-6">

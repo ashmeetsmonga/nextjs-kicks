@@ -2,14 +2,10 @@
 
 import DiscountHeader from "@/app/components/DiscountHeader";
 import Product from "@/app/components/Product";
-import { useShoeStore } from "@/app/store/useShoeStore";
-import Image from "next/image";
+import shoesList from '@/app/data.json'
 import React from "react";
 
 const CategoryPage = () => {
-
-  const shoesList = useShoeStore(state => state.shoesList)
-
   return (
     <div className="flex w-full flex-col gap-4">
       <DiscountHeader />
