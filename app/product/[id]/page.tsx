@@ -6,7 +6,7 @@ const ProductDetails = ({ params }: { params: { id: string } }) => {
   return (
     <div className="flex w-full flex-col gap-4">
       <div className="flex w-full flex-col gap-4 md:flex-row md:px-24">
-        <ImageContainer />
+        <ImageContainer id={params.id} />
         <ProductInfo id={params.id} />
       </div>
     </div>
