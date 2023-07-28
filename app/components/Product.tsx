@@ -15,7 +15,7 @@ const Product: React.FC<ProductProps> = ({shoeDetails}) => {
 
   return (
     <div
-      onClick={() => router.push("/product/1")}
+      onClick={() => router.push(`/product/${shoeDetails?.id}`)}
       className="group flex w-full cursor-pointer flex-col items-center gap-2"
     >
       <div className="relative aspect-square w-full rounded-xl bg-white">

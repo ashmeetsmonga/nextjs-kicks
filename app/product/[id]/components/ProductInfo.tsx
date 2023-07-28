@@ -1,14 +1,25 @@
+"use client"
+
 import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
+import shoesList from '@/app/data.json'
 
-const ProductInfo = () => {
+
+interface ProductInfoProps {
+  id: string
+}
+
+const ProductInfo: React.FC<ProductInfoProps> = ({id}) => {
+
+  const product = shoesList.find(shoe => shoe.id === id);
+
   return (
     <div className="flex w-full flex-col gap-2 md:w-2/5 md:gap-4">
-      <div className="self-start rounded-lg bg-theme-blue p-2 text-white md:p-4">
+      <div  onClick={() => alert(id)} className="self-start rounded-lg bg-theme-blue p-2 text-white md:p-4">
         New Release
       </div>
       <h1 className="text-2xl font-semibold uppercase md:text-4xl">
-        Adidas parley running shoes
+        {product?.name}
       </h1>
       <p className="text-xl font-semibold text-theme-blue md:text-2xl">
         Rs. 3000
