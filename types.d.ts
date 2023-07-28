@@ -35,3 +35,9 @@ interface Shoe {
     FIELD51: string
     FIELD52: string
 }
+
+interface Description {
+    dateSeen: string,
+    sourceURLs: string[],
+    value: string
+}

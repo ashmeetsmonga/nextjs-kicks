@@ -22,7 +22,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({id}) => {
         {product?.name}
       </h1>
       <p className="text-xl font-semibold text-theme-blue md:text-2xl">
-        Rs. 3000
+        {`Rs. ${product?.pricesMax}`}
       </p>
       <div className="flex flex-col gap-2">
         <div className="text-xl font-semibold md:text-2xl">Colors</div>
@@ -57,20 +57,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({id}) => {
       </div>
       <div className="mt-2 flex flex-col gap-2 md:mt-0">
         <p className="text-lg font-semibold uppercase">About the product</p>
-        <div className="flex flex-col gap-4">
-          <p>Shadow Navy / Army Green</p>
-          <p>
-            This product is excluded from all promotional discounts and offers.
-          </p>
-          <p>
-            Pay over time in interest-free installments with Affirm, Klarna or
-            Afterpay.
-          </p>
-          <p>
-            Join adiClub to get unlimited free standard shipping, returns, &
-            exchanges.
-          </p>
-        </div>
+          {product && JSON.parse(product.descriptions).map((desc: Description, idx: number) => <div className="w-full flex flex-col gap-4">{desc.value.split('.').map((sentence, idx) => <p>{sentence}</p>)}</div>)}
       </div>
     </div>
   );
