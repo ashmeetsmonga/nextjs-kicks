@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import shoesList from "@/app/data.json";
+import { AiFillDelete } from "react-icons/ai";
+import { useShoeStore } from "@/app/store/useShoeStore";
 
 interface CartItemProps {
   item: CartItem;
@@ -8,6 +12,8 @@ interface CartItemProps {
 
 const CartItem: React.FC<CartItemProps> = ({ item }) => {
   const product = shoesList.filter((shoe) => shoe.id === item.productId)[0];
+
+  const removeFromCart = useShoeStore((state) => state.removeFromCart);
 
   return (
     <div className="flex gap-2 md:gap-4">
@@ -28,8 +34,15 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
             <p>Quantity {item.quantity}</p>
           </div>
         </div>
-        <div className="text-xl font-semibold text-theme-blue">
-          Rs. {product.pricesMax}
+        <div className="flex w-full justify-between">
+          <div className="text-xl font-semibold text-theme-blue">
+            Rs. {product.pricesMax}
+          </div>
+          <AiFillDelete
+            onClick={() => removeFromCart(item.productId)}
+            size={25}
+            className="cursor-pointer"
+          />
         </div>
       </div>
     </div>
