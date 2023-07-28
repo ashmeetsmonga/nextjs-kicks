@@ -21,7 +21,7 @@ const CategoryPage = () => {
         <h2 className="text-2xl font-semibold capitalize md:text-4xl">
           Life style shoes
         </h2>
-        <p className="text-xs">10 items</p>
+        <p className="text-xs">{shoesList.length} items</p>
       </div>
       <div className="flex w-full gap-4">
         <div className="hidden w-1/4 flex-col md:flex">
