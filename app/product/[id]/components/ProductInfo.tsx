@@ -25,13 +25,14 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ id }) => {
       <p className="text-xl font-semibold text-theme-blue md:text-2xl">
         {`Rs. ${product?.pricesMax}`}
       </p>
-      <div className="flex flex-col gap-2">
+      {/* Color Selection */}
+      {/*<div className="flex flex-col gap-2">
         <div className="text-xl font-semibold md:text-2xl">Colors</div>
-        <div className="flex gap-4">
+         <div className="flex gap-4">
           <div className="rounded-full bg-theme-blue p-4"></div>
           <div className="rounded-full bg-theme-dark-gray p-4"></div>
-        </div>
-      </div>
+        </div> 
+      </div>*/}
       <div className="flex flex-col gap-2">
         <div className="text-xl font-semibold md:text-2xl">Size</div>
         <div className="flex gap-2">
