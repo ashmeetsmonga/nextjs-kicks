@@ -39,7 +39,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
             Rs. {product.pricesMax}
           </div>
           <AiFillDelete
-            onClick={() => removeFromCart(item.productId)}
+            onClick={() => removeFromCart(item.productId, item.size)}
             size={25}
             className="cursor-pointer"
           />
