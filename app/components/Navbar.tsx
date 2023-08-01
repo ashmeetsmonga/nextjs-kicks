@@ -7,6 +7,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import { BsFillCartFill } from "react-icons/bs";
 import NavbarMenu from "./NavbarMenu";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -34,8 +35,12 @@ const Navbar = () => {
           )}
         </button>
         <div className="hidden w-1/3 gap-6 md:flex">
-          <div className="cursor-pointer">Life Style Shoes</div>
-          <div className="cursor-pointer">Basketball Shoes</div>
+          <Link href="/">
+            <div className="cursor-pointer">Home</div>
+          </Link>
+          <Link href="/menu/shoes">
+            <div className="cursor-pointer">Shoes</div>
+          </Link>
         </div>
         <div className="w-1/3 text-center text-3xl font-extrabold">
           <span onClick={() => router.push("/")} className="cursor-pointer">
